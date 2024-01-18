@@ -1,2 +1,4 @@
 # v28K.RPT_Wireless_N_Repeater_AP_Bridge
 This project is supposed to summarize information found out about the cheapest available 802.11n devices using the Mediatek MT7628 Chipset
+
+These are mostly sold under the names "Wireless N Repeater", "300M Repeater" or "WiFi TV Ethernet Dongle" and all share more or less the same Firmware with some variations. Usually the configuration is the simplest possible one, using the cheapest KN SKU of the MT7628 Chip with 8MB embedded DRAM but functionality of the IoT mode as well as compatibility for pairing with an 802.11a/ac radio being omitted. The Chip still supports 5 100Mbps Fast Ethernet ports, however devices running the below described firmware usually just contain of one Ethernet Port.
