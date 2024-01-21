@@ -22,7 +22,7 @@ Firmware v28K.RPT.20180614 and obove (usually the ones on 8MB NOR) have the man_
 
 This is, because for some reason the part containing the save and upload button, <!--  is marked as comments and inactive	-->
 Further the buttons are missing their respective names, as these buttons are no longer defined in the language file.
-[Here](man_setting_fixed.htm) is  a completely fixed version of that page, so you can just drag that into your browser, head to the developer settings and in the elements tab, just copy the entire form element.
+[Here](man_setting_fixed.htm) is  a completely fixed version of that page (an alternative version [here](man_setting_fixed_FW_v28K.RPT.20220716.html) ), so you can just drag that into your browser, head to the developer settings and in the elements tab, just copy the entire form element.
 ![Alt text](../Pictures/copy_element_frmsetup.png)
 Now head back to the man_setting.htm tab opened on our repeater and replace that element. Right click it, edit as HTML, select all and paste to overwrite. 
 
