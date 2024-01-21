@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WiFi-Repeater Web Server</title>
+<link rel="stylesheet" href="style/gl.css" type="text/css">
+<link rel="stylesheet" href="style/common.css" type="text/css">
+<script type="text/javascript" src="js/lang_en.js?v=1466256614"></script>
+<meta http-equiv="pragma" content="no-cache">
+ <meta http-equiv="cache-control" content="no-cache">
+ <meta http-equiv="expires" content="0">
+ 
+<script type="text/javascript" src="js/gl.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<SCRIPT type="text/javascript">
+function configSave(f){
+	
+   f.CCMD.value = 2;	
+   f.action="profile.bin"
+   f.submit() ;
+}
+function loadConfirm(f){
+	if (f.files.value=="")
+	{
+		alert(pg_set.nofile)
+		return ;
+	}	
+	f.CCMD.value = 3;	
+	f.action="setok.htm";	
+	f.encoding="multipart/form-data" ;
+    f.submit()
+}
+function restoreConfirm(f){
+	if( !confirm(pg_set.resetmsg) )	
+		return;
+	$('#loginimg').show();
+	ajax_form('man_setting.htm', SetokPage, "CMD=SYS_CONF&CCMD=1");
+}
+$(document).ready(function() 
+{
+	// fix background heigh
+	InitBgHeigh("man_bg");	
+	get_by_id("save").value = pg_set.save;
+	get_by_id("load").value = pg_set.upload;
+	get_by_id("reset").value = pg_set.resetdefault;
+} 
+) 
+</script>
+</head>
+
+<!-- copy the form element of this code and replace the existing element in your Repeaters WebUi with it -->
+
+<body>
+<form name=frmSetup method=POST enctype=multipart/form-data>
+<INPUT type=hidden name=CMD value=SYS_CONF>
+<INPUT type=hidden name=GO value=man_setting.htm>
+<INPUT type=hidden name=CCMD value="100">
+<div class="container">
+  <div class="title"> <a href="index.htm"><img src="img/logo.gif" /></a> 
+    <script>
+    dw('<input type="button" id="logoff" class="btn_title_logoff title_btn" value="'+pg_title.logoff+'" onclick="logout()" />');</script> 
+  </div>
+  <script>WriteHr();</script> 
+  <!-- end global title -->
+  <div class="content">
+    <div id="man_bg">
+  <div id="id_back">
+    <div id="id_back_img"><a href="index.htm"><img class="img_back" src="img/BackButton.png" /></a></div>
+    <div id="id_back_str">
+      <script language="javascript">_T(pg_home.mn_set);</script>
+    </div>
+  </div>
+  <div id="id_man_main">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="head_white"><script language="javascript">_T(pg_set.save2file);</script></td>
+          <td valign="middle"><input type="button" class="input_btn_reset" id="save" name="save" value="Save Config" onclick="configSave(document.frmSetup);" /></td>
+        </tr>
+      </table>
+    <br />
+    <br />
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="head_white" valign="middle"><script language="javascript">_T(pg_set.loadformfile);</script></td>
+          <td valign="middle"><input type="file" class="input_man_text" id="files" name="files" /><br /><input type="submit" class="input_btn_reset" value="Upload Profile" id="load" name="load" onclick="return loadConfirm(this.form)" /></td>
+        </tr>
+      </table>
+    <br />
+    <br />
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="head_white"><script language="javascript">_T(pg_set.restore);</script></td>
+          <td valign="middle"><input type="button" class="input_btn_reset" id="reset" name="reset" value="Restore Default" onclick="restoreConfirm(this.form)" /></td>
+        </tr>
+      </table>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      
+        <td class="head_white"></td>
+        <td><font id="errorinfo"></font><img class="off" id="loginimg" src="img/login_load.gif" /></td>
+    </table>
+  </div>
+
+</div>
+    <!-- end .content --></div>
+  <!-- end .container --></div>
+  </form>
+</body>
+</html>
